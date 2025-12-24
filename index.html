@@ -8,24 +8,52 @@
 </head>
     
 <script>
-function telechargerAvecMotDePasse(fichier) {
-    const motDePasseCorrect = "Prince"; // 🔴 change ici
+let fichierAtelecharger = "";
+const motDePasseCorrect = "Prince"; // 🔴 change ici
 
-    const saisie = prompt("Entrez le mot de passe pour télécharger :");
+function ouvrirModal(fichier) {
+    fichierAtelecharger = fichier;
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("errorMessage").textContent = "";
+    document.getElementById("passwordModal").style.display = "block";
+}
+
+function fermerModal() {
+    document.getElementById("passwordModal").style.display = "none";
+}
+
+function validerMotDePasse() {
+    const saisie = document.getElementById("passwordInput").value;
 
     if (saisie === motDePasseCorrect) {
         const lien = document.createElement("a");
-        lien.href = fichier;
+        lien.href = fichierAtelecharger;
         lien.download = "";
         document.body.appendChild(lien);
         lien.click();
         document.body.removeChild(lien);
+        fermerModal();
     } else {
-        alert("Mot de passe incorrect ❌");
+        document.getElementById("errorMessage").textContent = "Mot de passe incorrect ❌";
     }
 }
 </script>
 
+<!-- MODAL MOT DE PASSE -->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <h3>🔐 Accès protégé</h3>
+        <p>Entrez le mot de passe pour télécharger</p>
+
+        <input type="password" id="passwordInput" placeholder="Mot de passe">
+        <p id="errorMessage"></p>
+
+        <div class="modal-actions">
+            <button onclick="validerMotDePasse()">Valider</button>
+            <button class="cancel" onclick="fermerModal()">Annuler</button>
+        </div>
+    </div>
+</div>
 
 
 <body>
@@ -62,7 +90,8 @@ function telechargerAvecMotDePasse(fichier) {
         <span class="icon">📶</span>
         <h3>Série d'exercices</h3>
         <p>Réseau filaire, sans fil, Wifi</p>
-        <a href="#" onclick="telechargerAvecMotDePasse('RI_serie.pdf'); return false;">Télécharger</a>
+        <a href="#" onclick="ouvrirModal('RI_serie.pdf'); return false;">Télécharger</a>
+
     </div>
 
 </section>
@@ -73,14 +102,3 @@ function telechargerAvecMotDePasse(fichier) {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
