@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
+    
+<script>
+function telechargerAvecMotDePasse(fichier) {
+    const motDePasseCorrect = "half-blood"; // ← change ce mot de passe
+
+    const saisie = prompt("Entrez le mot de passe pour télécharger :");
+
+    if (saisie === motDePasseCorrect) {
+        window.location.href = fichier;
+    } else {
+        alert("Mot de passe incorrect ❌");
+    }
+}
+</script>
+
+
 <body>
 
 <header>
@@ -51,6 +67,7 @@
 
 </body>
 </html>
+
 
 
 
