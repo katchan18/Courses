@@ -116,18 +116,18 @@ header p {
 
 /* IMAGES */
 .side-image {
-    width: 170px;
+    width: 350px;
     position: absolute;
     opacity: 0.9;
     filter: drop-shadow(0 12px 25px rgba(0,0,0,0.15));
 }
 
 .side-image.left {
-    left: 30px;
+    left: 90px;
 }
 
 .side-image.right {
-    right: 30px;
+    right: 90px;
 }
 
 /* LESSONS */
@@ -201,3 +201,4 @@ footer {
         display: none;
     }
 }
+
