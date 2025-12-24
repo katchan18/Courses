@@ -9,17 +9,23 @@
     
 <script>
 function telechargerAvecMotDePasse(fichier) {
-    const motDePasseCorrect = "half-blood"; // ← change ce mot de passe
+    const motDePasseCorrect = "Prince"; // 🔴 change ici
 
     const saisie = prompt("Entrez le mot de passe pour télécharger :");
 
     if (saisie === motDePasseCorrect) {
-        window.location.href = fichier;
+        const lien = document.createElement("a");
+        lien.href = fichier;
+        lien.download = "";
+        document.body.appendChild(lien);
+        lien.click();
+        document.body.removeChild(lien);
     } else {
         alert("Mot de passe incorrect ❌");
     }
 }
 </script>
+
 
 
 <body>
@@ -47,10 +53,9 @@ function telechargerAvecMotDePasse(fichier) {
 
     <div class="card">
         <span class="icon">💻</span>
-        <h3>Système D'exploitation</h3>
+        <h3>Système d'exploitation</h3>
         <p>Windows, Mac, Linux, Chrome Os</p>
-        <a href="#" onclick="telechargerAvecMotDePasse('cours_system_dexploitation.pdf')" download>Télécharger</a>
-
+        <a href="#" onclick="telechargerAvecMotDePasse('cours_system_dexploitation.pdf'); return false;">Télécharger</a>
     </div>
 
     <div class="card">
@@ -68,6 +73,7 @@ function telechargerAvecMotDePasse(fichier) {
 
 </body>
 </html>
+
 
 
 
