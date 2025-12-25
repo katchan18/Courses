@@ -123,11 +123,11 @@ header p {
 }
 
 .side-image.left {
-    left: 50px;
+    left: 30px;
 }
 
 .side-image.right {
-    right: 50px;
+    right: 30px;
 }
 
 /* LESSONS */
@@ -201,6 +201,7 @@ footer {
         display: none;
     }
 }
+
 
 
 
