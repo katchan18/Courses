@@ -116,7 +116,7 @@ header p {
 
 /* IMAGES */
 .side-image {
-    width: 300px;
+    width: 240px;
     position: absolute;
     opacity: 0.9;
     filter: drop-shadow(0 12px 25px rgba(0,0,0,0.15));
@@ -201,5 +201,6 @@ footer {
         display: none;
     }
 }
+
 
 
