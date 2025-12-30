@@ -10,11 +10,14 @@
 <script>
 let fichierAtelecharger = "";
 
+/* 🔐 Mot de passe par fichier */
 const motsDePasse = {
     "correction devoir 2_RI.pdf": "passV1",
     "correction_RI_V2.pdf": "passV2",
     "cours_system_dexploitation.pdf": "systeme123"
 };
+
+const TEMPS_ATTENTE = 2 * 60 * 1000; // ⏱️ 5 minutes en millisecondes
 
 function ouvrirModal(fichier) {
     fichierAtelecharger = fichier;
@@ -31,6 +34,26 @@ function validerMotDePasse() {
     const saisie = document.getElementById("passwordInput").value;
     const errorMessage = document.getElementById("errorMessage");
 
+    /* 🔎 Vérifier délai d’attente */
+    const dernierTelechargement = localStorage.getItem(fichierAtelecharger);
+    const maintenant = Date.now();
+
+    if (dernierTelechargement && maintenant - dernierTelechargement < TEMPS_ATTENTE) {
+        const tempsRestant = Math.ceil(
+            (TEMPS_ATTENTE - (maintenant - dernierTelechargement)) / 60000
+        );
+
+        errorMessage.textContent =
+            `⏳ Veuillez attendre ${tempsRestant} minute(s) avant de télécharger à nouveau.`;
+
+        setTimeout(() => {
+            errorMessage.textContent = "";
+        }, 3000);
+
+        return;
+    }
+
+    /* 🔐 Vérification du mot de passe */
     if (saisie === motsDePasse[fichierAtelecharger]) {
         const lien = document.createElement("a");
         lien.href = fichierAtelecharger;
@@ -38,6 +61,10 @@ function validerMotDePasse() {
         document.body.appendChild(lien);
         lien.click();
         document.body.removeChild(lien);
+
+        /* 💾 Sauvegarder l’heure du téléchargement */
+        localStorage.setItem(fichierAtelecharger, maintenant);
+
         fermerModal();
     } else {
         errorMessage.textContent = "Mot de passe incorrect ❌";
@@ -45,10 +72,11 @@ function validerMotDePasse() {
         setTimeout(() => {
             errorMessage.textContent = "";
             document.getElementById("passwordInput").value = "";
-        }, 1500);
+        }, 2000);
     }
 }
 </script>
+
 
 
 
@@ -129,6 +157,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
