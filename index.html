@@ -9,7 +9,13 @@
     
 <script>
 let fichierAtelecharger = "";
-const motDePasseCorrect = "Prince";
+
+/* 🔐 Mot de passe par fichier */
+const motsDePasse = {
+    "correction devoir 2_RI.pdf": "passV1",
+    "correction_RI_V2.pdf": "passV2",
+    "cours_system_dexploitation.pdf": "systeme123"
+};
 
 function ouvrirModal(fichier) {
     fichierAtelecharger = fichier;
@@ -25,7 +31,7 @@ function fermerModal() {
 function validerMotDePasse() {
     const saisie = document.getElementById("passwordInput").value;
 
-    if (saisie === motDePasseCorrect) {
+    if (saisie === motsDePasse[fichierAtelecharger]) {
         const lien = document.createElement("a");
         lien.href = fichierAtelecharger;
         lien.download = "";
@@ -38,6 +44,7 @@ function validerMotDePasse() {
     }
 }
 </script>
+
 
 <!-- MODAL MOT DE PASSE -->
 <div id="passwordModal" class="modal">
@@ -116,6 +123,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
