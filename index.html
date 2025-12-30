@@ -10,7 +10,6 @@
 <script>
 let fichierAtelecharger = "";
 
-/* 🔐 Mot de passe par fichier */
 const motsDePasse = {
     "correction devoir 2_RI.pdf": "passV1",
     "correction_RI_V2.pdf": "passV2",
@@ -30,6 +29,7 @@ function fermerModal() {
 
 function validerMotDePasse() {
     const saisie = document.getElementById("passwordInput").value;
+    const errorMessage = document.getElementById("errorMessage");
 
     if (saisie === motsDePasse[fichierAtelecharger]) {
         const lien = document.createElement("a");
@@ -40,10 +40,17 @@ function validerMotDePasse() {
         document.body.removeChild(lien);
         fermerModal();
     } else {
-        document.getElementById("errorMessage").textContent = "Mot de passe incorrect ❌";
+        errorMessage.textContent = "Mot de passe incorrect ❌";
+
+        // ⏳ Disparition automatique après 2 secondes
+        setTimeout(() => {
+            errorMessage.textContent = "";
+            document.getElementById("passwordInput").value = "";
+        }, 2000);
     }
 }
 </script>
+
 
 
 <!-- MODAL MOT DE PASSE -->
@@ -123,6 +130,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
