@@ -42,11 +42,10 @@ function validerMotDePasse() {
     } else {
         errorMessage.textContent = "Mot de passe incorrect ❌";
 
-        // ⏳ Disparition automatique après 2 secondes
         setTimeout(() => {
             errorMessage.textContent = "";
             document.getElementById("passwordInput").value = "";
-        }, 2000);
+        }, 1500);
     }
 }
 </script>
@@ -91,7 +90,7 @@ function validerMotDePasse() {
 </section>
 
 <section class="lessons">
-    <h2>📂 Cours disponibles</h2>
+    <h2>📂 Documents disponibles</h2>
 
 
     <div class="card">
@@ -130,6 +129,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
