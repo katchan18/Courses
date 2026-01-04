@@ -100,20 +100,13 @@ function togglePassword() {
 
         <div class="password-field">
             <input type="password" id="passwordInput" placeholder="Mot de passe">
-            <span class="eye" onclick="togglePassword()">
-                <!-- ŒIL OUVERT -->
-                <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                </svg>
 
-                <!-- ŒIL FERMÉ -->
-                <svg id="eye-closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M2 2l20 20M12 5C5 5 1 12 1 12a21 21 0 0 0 5.3 5.9M12 19c7 0 11-7 11-7a21 21 0 0 0-5.3-5.9"/>
-                </svg>
+            <span class="eye" onclick="togglePassword()">
+            <img src="eye_open.svg" id="eye-open" alt="Afficher">
+            <img src="eye_closed.svg" id="eye-closed" alt="Masquer">
             </span>
         </div>
-
+        
         <p id="errorMessage"></p>
 
         <div class="modal-actions">
@@ -171,3 +164,4 @@ function togglePassword() {
 
 </body>
 </html>
+
