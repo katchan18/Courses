@@ -230,6 +230,37 @@ footer {
     opacity: 1;
 }
 
+/* ===== Champ mot de passe avec œil intégré ===== */
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* espace pour l'œil */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.password-field .eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.7;
+    user-select: none;
+}
+
+.password-field .eye:hover {
+    opacity: 1;
+}
+
+
 
 
 
