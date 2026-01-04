@@ -260,6 +260,46 @@ footer {
     opacity: 1;
 }
 
+/* ===== Champ mot de passe avec icône SVG intégrée ===== */
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 10px 44px 10px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.password-field .eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.password-field svg {
+    width: 20px;
+    height: 20px;
+    fill: #666;
+}
+
+#eye-closed {
+    display: none;
+}
+
+.password-field .eye:hover svg {
+    fill: #1976d2;
+}
+
+
 
 
 
