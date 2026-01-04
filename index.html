@@ -95,8 +95,20 @@ function validerMotDePasse() {
         <!--<input type="password" id="passwordInput" placeholder="Mot de passe"> -->
         <div class="password-field">
             <input type="password" id="passwordInput" placeholder="Mot de passe">
-            <span class="eye" onclick="togglePassword()">👁️</span>
+            <span class="eye" onclick="togglePassword()" aria-label="Afficher le mot de passe">
+            <!-- ŒIL OUVERT -->
+            <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                <circle cx="12" cy="12" r="2.5"/>
+            </svg>
+
+            <!-- ŒIL FERMÉ -->
+            <svg id="eye-closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M2 2l20 20M12 5C5 5 1 12 1 12a21 21 0 0 0 5.3 5.9M12 19c7 0 11-7 11-7a21 21 0 0 0-5.3-5.9"/>
+            </svg>
+            </span>
         </div>
+
 
         <p id="errorMessage"></p>
 
@@ -168,6 +180,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
