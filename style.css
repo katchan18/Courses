@@ -234,3 +234,15 @@ footer {
         display: none;
     }
 }
+
+/* ===== TAILLE CORRECTE DES SVG ŒIL ===== */
+
+.password-field img {
+    width: 18px;      /* 🔹 taille idéale */
+    height: 18px;
+    max-width: 18px;
+    max-height: 18px;
+    display: block;
+}
+
+
