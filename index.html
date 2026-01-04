@@ -76,6 +76,11 @@ function validerMotDePasse() {
         }, 2000);
     }
 }
+        function togglePassword() {
+            const input = document.getElementById("passwordInput");
+            input.type = input.type === "password" ? "text" : "password";
+        }
+
 </script>
 
 
@@ -162,6 +167,7 @@ function validerMotDePasse() {
 
 </body>
 </html>
+
 
 
 
